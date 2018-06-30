@@ -1,1 +1,3 @@
-# Project1
+# Project 1: Fable
+
+Live story creator where multiple users can collaborate on a new Fable. App selects a user at random to create the next sentence. Selected user is given a prompt with inspiration from random Word or Images via API. User is given a time limit to submit their new sentence. Other users can react to the previous sentences by rating them with a thumbs up or thumbs down. Sentence will get removed if it receives 75% downvotes. User score equals total number of upvotes from other players. Score is only visible at the end of the game, to prevent bias & downvoting closest competitors. Total game time ~3 minutes. 30 seconds per turn with 10 second review.
