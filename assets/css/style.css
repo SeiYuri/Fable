@@ -1,0 +1,41 @@
+body {
+    background-color: #410c1c;
+}
+
+#header-image {
+    height: 220px;
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+}
+
+#start-story-img {
+    height: 80px;
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.buttons-holder {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    color: white;
+}
+
+#start-button, #instructions-button {
+    width: 20%;
+    color: white; 
+    font-family: 'Spirax', cursive;
+    background-color: rgb(65, 62, 62);
+    font-size: 20px;
+}
+
+#start-button:hover, #instructions-button:hover {
+    color: white;
+    text-shadow: 2px 2px 4px white;
+}
