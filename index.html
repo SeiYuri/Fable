@@ -15,16 +15,28 @@
 <body>
 
     <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <!-- <img id="header-image" src="assets/images/logo.png" />
 
-        <img id="header-image" src="assets/images/logo.png" />
+            <img id="start-story-img" src="assets/images/startyourstory.png" /> -->
 
-        <img id="start-story-img" src="assets/images/startyourstory.png" />
+            <div class="buttons-holder">
+                <button type="button" id="start-button" class="btn btn-secondary btn-lg">Start</button>
+                <button type="button" id="instructions-button" class="btn btn-secondary btn-lg">Instructions</button>
+            </div>
 
-        <div class="buttons-holder">
-            <button type="button" id="start-button" class="btn btn-secondary btn-lg">Start</button>
-            <button type="button" id="instructions-button" class="btn btn-secondary btn-lg">Instructions</button>
+        <form>
+            <input type="text" placeholder="Player Name" class="player-name-input">
+            <input type="submit" value="Add Player" id="player-name-button">
+        </form>
+        <div class="player-names">
+            <ul class="player-list">
+                
+            </ul>
         </div>
-
+        <div id="nameAlert"></div>
+    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -53,9 +65,6 @@
             <!-- Display full story: ID #full-story-display -->
 
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
 
 </body>
 
