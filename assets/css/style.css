@@ -33,6 +33,7 @@ body {
     font-family: 'Spirax', cursive;
     background-color: rgb(65, 62, 62);
     font-size: 20px;
+    margin-left: 10px;
 }
 
 #start-button:hover, #instructions-button:hover {
