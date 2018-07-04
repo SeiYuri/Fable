@@ -14,21 +14,43 @@
 
 <body>
 
-    <div class="container">
+    <div class="container title-screen">
         <div class="row">
         <div class="col-md-12">
-            <!-- <img id="header-image" src="assets/images/logo.png" />
+            <img id="header-image" src="assets/images/logo.png" />
 
-            <img id="start-story-img" src="assets/images/startyourstory.png" /> -->
+            <img id="start-story-img" src="assets/images/startyourstory.png" />
+                  
+                
+                 
 
             <div class="buttons-holder">
                 <button type="button" id="start-button" class="btn btn-secondary btn-lg">Start</button>
-                <button type="button" id="instructions-button" class="btn btn-secondary btn-lg">Instructions</button>
+                <button type="button" id="instructions-button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#exampleModal">Instructions</button>
             </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                         Add Players! Placeholder for Instructions!
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
         <form>
             <input type="text" placeholder="Player Name" class="player-name-input">
-            <input type="submit" value="Add Player" id="player-name-button">
+            <button type="submit" id="player-name-button">Add Player</button>
         </form>
         <div class="player-names">
             <ul class="player-list">
@@ -39,16 +61,15 @@
     </div>
     </div>
 
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="app.js"></script>
+    <script src="homepage.js"></script>
 
   <!-- ASSIGNMENT PLACEHOLDERS (IDs / CLASSES) --> 
- 
-        <!-- Home Page -->
-            <!-- Instructions button: ID #instructions-button -->
-            <!-- Start button: ID #start-button -->
-            <!-- Player name text boxes: CLASS .player-name-input -->
-
+  
         <!-- Story Page -->
             <!-- Main Content Area / Current Story: ID #current-story -->
             <!-- Display randomized word/image ID #random-content -->
