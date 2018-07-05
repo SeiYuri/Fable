@@ -5,7 +5,7 @@
 $(document).ready(function(){
 //Player Objects
 var playersIn = 0
-$(".player-list").append("<h6> Players: " + playersIn + "/ 4</h6>")
+$(".player-list").append("<h6> Players: " + playersIn + " / 4</h6>")
 
 var players = [];
 
