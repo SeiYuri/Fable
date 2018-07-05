@@ -1,6 +1,7 @@
 // <!-- Instructions button: ID #instructions-button -->
 // <!-- Start button: ID #start-button -->
 // <!-- Player name text boxes: CLASS .player-name-input -->
+
 var players = [];
 var playersIn = 0;
 

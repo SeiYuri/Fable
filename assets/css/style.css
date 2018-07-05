@@ -1,14 +1,15 @@
 body {
     background-color: #410c1c;
+    color: white;
 }
 
 #header-image {
-    height: 220px;
-    width: 25%;
+    height: 250px;
+    width: 28%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 #start-story-img {
@@ -39,4 +40,13 @@ body {
 #start-button:hover, #instructions-button:hover {
     color: white;
     text-shadow: 2px 2px 4px white;
+}
+
+.player-list {
+    margin-top: 5px;
+    margin-left: 380px;
+}
+
+.player-name-input {
+    margin-left: 320px;
 }
