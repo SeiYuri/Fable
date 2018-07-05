@@ -10,29 +10,42 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- local JavaScript files are called at the end of <body> -->
 </head>
 
 <body>
     <div class="container title-screen">
         <div class="row">
             <div class="col-md-12">
-                <img id="header-image" src="assets/images/logo.png"/>
-
+                <img id="header-image" src="assets/images/logo.png" />
                 <img id="start-story-img" src="assets/images/startyourstory.png" />
+                <div class="buttons-holder">
+                    <button type="button" id="start-button" class="btn btn-secondary btn-lg">Start</button>
+                    <button type="button" id="instructions-button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#instructionsModal">Instructions</button>
+                </div>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
+                                <h5 class="modal-title">Instructions</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
+                                <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                Add Players! Placeholder for Instructions!
+                                <strong>The goal of the game is to write a fun fictional story</strong>
+                                <ol>
+                                    <li>Gather 'round the campfire (this computer) with 3 friends</li>
+                                    <li>Enter your names on the Start Screen</li>
+                                    <li>Players will be selected at random and have 30 seconds to add onto the Fable</li>
+                                    <li>Once the 30 seconds are up or user submits their contribution, other players will have a chance to Veto their contribution if they think it will take the story down too dark a path! (the vote must be unanimous)</li>
+                                    <li>The game lasts 3 minutes</li>
+                                </ol>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -40,55 +53,35 @@
                         </div>
                     </div>
                 </div>
-
                 <form>
                     <input type="text" placeholder="Player Name" class="player-name-input">
                     <button type="submit" id="player-name-button">Add Player</button>
                 </form>
                 <div class="player-names">
-                    <ul class="player-list">
-
-                    </ul>
+                    <ul class="player-list"></ul>
                 </div>
                 <div id="nameAlert"></div>
-
-                <div class="buttons-holder">
-                    <button type="button" id="start-button" class="btn btn-secondary btn-lg">Start</button>
-                    <button type="button" id="instructions-button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#exampleModal">Instructions</button>
-                </div>
             </div>
         </div>
-
-
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-        <script src="app.js"></script>
-        <script src="homepage.js"></script>
-
-
-        <!-- ASSIGNMENT PLACEHOLDERS (IDs / CLASSES) -->
-
-        <!-- Story Page -->
-        <!-- Main Content Area / Current Story: ID #current-story -->
-        <!-- Display randomized word/image ID #random-content -->
-        <!-- New Sentence text area input for Current Player: ID #new-sentence-input -->
-        <!-- Submit Button To Append Story: ID #new-sentence-submit-button -->
-        <!-- Timer: ID #story-write-timer -->
-        <!-- Sentence review pop-up modal -->
-        <!-- Submitted sentence: #submitted-sentence -->
-        <!-- Upvote/Downvote buttons for each player: CLASS: 
-                    .upvote-btn(1-4)  | .downvote-btn(1-4) -->
-
-        <!-- Results Page -->
-        <!-- 2-column Table with player name and score: #results-table  -->
-        <!-- Display full story: ID #full-story-display -->
-
     </div>
-
+    <script src="app.js"></script>
+    <script src="homepage.js"></script>
 </body>
-
 </html>
+
+<!-- ASSIGNMENT PLACEHOLDERS (IDs / CLASSES) --> 
+            
+                    <!-- Story Page -->
+                        <!-- Main Content Area / Current Story: ID #current-story -->
+                        <!-- Display randomized word/image ID #random-content -->
+                        <!-- New Sentence text area input for Current Player: ID #new-sentence-input -->
+                        <!-- Submit Button To Append Story: ID #new-sentence-submit-button -->
+                        <!-- Timer: ID #story-write-timer -->
+                        <!-- Sentence review pop-up modal -->
+                            <!-- Submitted sentence: #submitted-sentence -->
+                            <!-- Upvote/Downvote buttons for each player: CLASS: 
+                                .upvote-btn(1-4)  | .downvote-btn(1-4) -->
+                        
+                    <!-- Results Page -->
+                        <!-- 2-column Table with player name and score: #results-table  -->
+                        <!-- Display full story: ID #full-story-display -->
