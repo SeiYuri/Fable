@@ -16,6 +16,8 @@ $(document).ready(function(){
             $(".title-screen").css("display", "none"); // hide the title screen and show the main gameplay div
             $(".game-screen").css("display", "block"); // show gameplay screen
             // TO-DO: add function call to start game (timers, etc)
+            playersRemainingThisRound = players;
+            timer = setInterval(timerChange,1000);
         }
     });
 
@@ -30,6 +32,7 @@ $(document).ready(function(){
         if(nameInput){
             if (playersIn === 0){
                 var player1 = {
+                    playerID: 0,
                     name: nameInput,
                     points : 0
                 };
@@ -38,6 +41,7 @@ $(document).ready(function(){
             }
             else if (playersIn === 1){
                 var player2 = {
+                    playerID: 1,
                     name: nameInput,
                     points : 0
                 };
@@ -46,6 +50,7 @@ $(document).ready(function(){
             }
             else if (playersIn === 2){
                 var player3 = {
+                    playerID: 2,
                     name: nameInput,
                     points : 0
                 };
@@ -54,6 +59,7 @@ $(document).ready(function(){
             }
             else if (playersIn === 3){
                 var player4 = {
+                    playerID: 3,
                     name: nameInput,
                     points : 0
                 };
@@ -74,4 +80,3 @@ $(document).ready(function(){
         
     });
 
-});
