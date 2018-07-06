@@ -28,6 +28,7 @@ $(document).ready(function(){
         if(nameInput){
             if (playersIn === 0){
                 var player1 = {
+                    playerID: 0,
                     name: nameInput,
                     points : 0
                 };
@@ -36,6 +37,7 @@ $(document).ready(function(){
             }
             else if (playersIn === 1){
                 var player2 = {
+                    playerID: 1,
                     name: nameInput,
                     points : 0
                 };
@@ -44,6 +46,7 @@ $(document).ready(function(){
             }
             else if (playersIn === 2){
                 var player3 = {
+                    playerID: 2,
                     name: nameInput,
                     points : 0
                 };
@@ -52,6 +55,7 @@ $(document).ready(function(){
             }
             else if (playersIn === 3){
                 var player4 = {
+                    playerID: 3,
                     name: nameInput,
                     points : 0
                 };
