@@ -5,8 +5,6 @@
 var players = [];
 var playersIn = 0;
 
-$(document).ready(function(){
-
     $(".player-list").append("<h6> Players: " + playersIn + "/ 4</h6>"); // TO-DO: since this is just an initialization it should be moved to the html
 
     $("#start-button").on("click", function(){
@@ -14,6 +12,8 @@ $(document).ready(function(){
             $(".title-screen").css("display", "none"); // hide the title screen and show the main gameplay div
             $(".game-screen").css("display", "block"); // show gameplay screen
             // TO-DO: add function call to start game (timers, etc)
+            playersRemainingThisRound = players;
+            timer = setInterval(timerChange,1000);
         }
     });
 
@@ -76,4 +76,3 @@ $(document).ready(function(){
         
     });
 
-});
