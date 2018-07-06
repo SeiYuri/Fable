@@ -5,7 +5,6 @@
 var players = [];
 var playersIn = 0;
 
-$(document).ready(function(){
 
     $(".fadeAnimation").addClass('animated fadeInDown');
 

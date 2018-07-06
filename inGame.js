@@ -14,6 +14,11 @@
     var timer;
     var timeout;
 
+    // var to hold votes
+    var votesLeft = 0;
+    var upVote = 0;
+    var downVote = 0;
+
     function timerChange(){
         time--
         console.log(time);
@@ -40,8 +45,8 @@
     }
 
     function approveSentence() {
-        var reviewDiv = $("#review-prev-sentence")
-        var newSentenceDiv = $("#review-new-sentence")
+        var reviewDiv = $(".review-prev-sentence")
+        var newSentenceDiv = $(".review-new-sentence")
         var newSentenceInput = $("#new-sentence-input").val().trim();
         console.log(newSentenceInput);
         if(story.length === 0){
@@ -52,17 +57,43 @@
             newSentenceDiv.html("<p>"+ newSentenceInput + "</p>");
         }
         for (var l = 0; l < players.length; l++){
-            var buttonsDiv = $("<div id=" + ">");
+            var buttonsDiv = $("<div id=player" + players[l].playerID + ">");
+            var upVote = $("<button class='approvalBtn' data-vote='up' data-player=player" + players[l].playerID+ ">")
+            var downVote = $("<button class='approvalBtn' data-vote='down' data-player=player" + players[l].playerID+ ">")
+            buttonsDiv.append(upVote,downVote);
+            $(".approval-btns").append(buttonsDiv);
             
         }
+        votesLeft = players.length;
         $("#reviewModal").modal('show');
-    }
+        
+    };
 
-    function pickNextPlayer() {
-        if (playersRemainingThisRound.length === 0) { // all players have gone this round
-            // all players are eligible to be next
-            playersRemainingThisRound = players;
+
+    $(document).on("click", ".approvalBtn", function(){
+        var vote = $(this).attr("data-vote");
+        var buttonDivLoc = $(this).attr("data-player");
+        if (vote === "up"){
+            upVote++;
+        }
+        else {
+            downVote++;
+        }
+        votesLeft--;
+        console.log(votesLeft);
+        if(votesLeft === 0){
+            if(downVote < Math.floor(players.length * 0.75)){
+            var newStory = {
+                sentence: $("#new-sentence-input").val().trim(),
+                playerID: players[players.indexOf(currentPlayer)].playerID
+            };
+            story.push(newStory);
+            }
+            $("#reviewModal").modal('hide');
         };
+        $("#" + buttonDivLoc).remove();
+    });
+
     function findIndexOfCurrentPlayer(element) {
         return element.name == currentPlayer;
     };
@@ -129,5 +160,4 @@ function gameOver() {
         $("#full-story-display").append(newSentence);
     });
 
-}
 }
