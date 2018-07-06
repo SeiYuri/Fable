@@ -1,6 +1,7 @@
 /* Timers */ 
     /* In game screen should be visible until the time limit is up */ 
-    var gameTimeLimit = 180; // seconds
+    var numRounds = 3; // each user will get this many turns
+    var activeRound = 1; // number of active round
     var turnTimeLimit = 30; // seconds
     var voteTimeLimit = 10; // seconds
     var currentPlayer = "";
@@ -90,9 +91,16 @@
     })
 
 
+function pickNextPlayer() {
+    if (playersRemainingThisRound.length === 0) { // all players have gone this round
+        // all players are eligible to be next
+        playersRemainingThisRound = players;
+        activeRound++;
+    }
 
-
-
+    if (activeRound > numRounds) {
+        gameOver();
+    }
 
     
     // determine next player, store in 'currentPlayer', and remove current player from eligible players in current round
@@ -102,13 +110,24 @@
 }
 
 
+function findIndexOfCurrentPlayer(element) {
+    return element.name == currentPlayer;
+}
 
+function gameOver() {
+    $(".game-screen").css("display", "none");
+    $(".results-screen").css("display", "block");
+    // TO-DO: do we need to cancel any timers here?
+    
+    // Populate story div
+    story.forEach(function(element) {
+        var newSentence = $("<span>").text(element.sentence);
+        $(newSentence).addClass(function() {
+            var className = "player-" + this.playerID + "-sentences";
+            return className;
+        });
+        $("#full-story-display").append(newSentence);
+    });
 
-
-
-
-
-
-
-
-
+}
+}
