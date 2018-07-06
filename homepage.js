@@ -5,7 +5,11 @@
 var players = [];
 var playersIn = 0;
 
-    $(".player-list").append("<h6> Players: " + playersIn + "/ 4</h6>"); // TO-DO: since this is just an initialization it should be moved to the html
+$(document).ready(function(){
+
+    $(".fadeAnimation").addClass('animated fadeInDown');
+
+    $(".player-list").append("<h6> Players: " + playersIn + " / 4</h6>"); // TO-DO: since this is just an initialization it should be moved to the html
 
     $("#start-button").on("click", function(){
         if(playersIn === 4){ // If all players are in
@@ -61,7 +65,7 @@ var playersIn = 0;
                 };
                 players.push(player4);
                 playersIn++;
-                $("#nameAlert").text("Everybody is In! Start the Game");
+                $("#nameAlert").text("Everybody's in! Press “Start” to play!");
             }
             else {
                 $("#nameAlert").text("Game is full!");
