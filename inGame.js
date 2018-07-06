@@ -50,7 +50,11 @@
             reviewDiv.html("<p>" + story[story.length - 1] + "</p>")
             newSentenceDiv.html("<p>"+ newSentenceInput + "</p>");
         }
-        $("#exampleModal").modal('show');
+        for (var l = 0; l < players.length; l++){
+            var buttonsDiv = $("<div id=" + ">");
+            
+        }
+        $("#reviewModal").modal('show');
     }
 
     function pickNextPlayer() {
@@ -80,7 +84,7 @@
 
    
     $(document).on("click", "#new-sentence-submit-button", function(){
-        event.preventDefault();
+        Event.preventDefault();
         clearInterval(timer);
         moveToApproval();
     })
