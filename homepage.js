@@ -10,6 +10,7 @@ var playersIn = 0;
 
     $("#start-button").on("click", function(){
         if(playersIn === 4){ // If all players are in
+            updateSidebar();
             $(".title-screen").css("display", "none"); // hide the title screen and show the main gameplay div
             $(".game-screen").css("display", "block"); // show gameplay screen
             // TO-DO: add function call to start game (timers, etc)

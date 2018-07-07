@@ -130,8 +130,6 @@ function moveToApproval (){
 
 
 /* Turn logic: Picks a player at random, but ensures that no player is "ahead" of any other player by more than 1 turn */ 
-var playersRemainingThisRound = players.concat(); // creates a copy of players array
-console.log(playersRemainingThisRound);
 
 function pickNextPlayer() {
     console.log("Pick Next player is run")
@@ -176,9 +174,12 @@ function gameOver() {
 }
 
 function updateSidebar() {
-    $("#sidebar-list").clear();
-    players.forEach(player, function() {
+    $("#sidebar-list").empty();
+    players.forEach(function(player) {
         var newListItem = $("<li>").text(player.name);
+        if (player.playerID == currentPlayer) {
+            $(newListItem).addClass("current-player-sidebar");
+        }
         $("#sidebar-list").append(newListItem);
     });
     
