@@ -148,6 +148,7 @@ function pickNextPlayer() {
     // determine next player, store in 'currentPlayer', and remove current player from eligible players in current round
     var nextPlayer = playersRemainingThisRound[Math.floor(Math.random()*playersRemainingThisRound.length)].playerID; //need to read .name property
     currentPlayer = nextPlayer;
+    updateSidebar();
     playersRemainingThisRound.splice(playersRemainingThisRound.findIndex(findIndexOfCurrentPlayer),1); // remove current player from remaining players array
 }
 
@@ -172,5 +173,14 @@ function gameOver() {
     });
 
 
+}
+
+function updateSidebar() {
+    $("#sidebar-list").clear();
+    players.forEach(player, function() {
+        var newListItem = $("<li>").text(player.name);
+        $("#sidebar-list").append(newListItem);
+    });
+    
 }
 
