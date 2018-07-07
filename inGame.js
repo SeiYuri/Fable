@@ -152,6 +152,7 @@ function pickNextPlayer() {
     updateSidebar();
     playersRemainingThisRound.splice(playersRemainingThisRound.findIndex(findIndexOfCurrentPlayer),1); // remove current player from remaining players array
     console.log(players[parseInt(currentPlayer)].name);
+    updateRandomContent();
 }
 
 function findIndexOfCurrentPlayer(element) {

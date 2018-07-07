@@ -27,6 +27,7 @@ var playersIn = 0;
         $(".player-list").empty();
 
         if(nameInput){
+
             if (playersIn === 0){
                 var player1 = {
                     playerID: 0,
