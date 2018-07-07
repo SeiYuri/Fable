@@ -37,7 +37,10 @@
         $("#" + divID).empty();
         for(k = 0 ; k < story.length ; k++){
             var newSentence = $("<span>").text(story[k].sentence);
-            $(newSentence).addClass("player-" + this.playerID + "-sentences");
+            if (story[k].newParagraph === "on"){
+                $("#" + divID).append("<br><br>");
+            }
+            $(newSentence).addClass("player-" + story[k].playerID + "-sentences");
             $("#" + divID).append(newSentence);
         }
     }
@@ -61,8 +64,8 @@
         }
         for (var l = 0; l < players.length; l++){
             var buttonsDiv = $("<div id=player" + players[l].playerID + ">");
-            var upVote = $("<button class='approvalBtn' data-vote='up' data-player=player" + players[l].playerID+ ">")
-            var downVote = $("<button class='approvalBtn' data-vote='down' data-player=player" + players[l].playerID+ ">")
+            var upVote = $("<button class='approvalBtn' data-vote='up' data-player=player" + players[l].playerID+ ">Up</button>")
+            var downVote = $("<button class='approvalBtn' data-vote='down' data-player=player" + players[l].playerID+ ">Down</button>")
             buttonsDiv.append(upVote,downVote);
             $(".approval-btns").append(buttonsDiv);
             
@@ -91,9 +94,16 @@
 
         if(votesLeft === 0){
             if(downVote < Math.floor(players.length * 0.75)){
+            if ($("#new-paragraph-check").val() === "true"){
+                var newParagraph = true
+            }
+            else {
+                var newParagraph = false
+            }
             var newStory = {
                 sentence: $("#new-sentence-input").val().trim(),
-                playerID: players[players.indexOf(currentPlayer)].playerID
+                playerID: players[currentPlayer].playerID,
+                startParagraph: newParagraph
             };
             story.push(newStory);
             }
@@ -140,8 +150,8 @@ function pickNextPlayer() {
 }
 
 
-function findIndexOfCurrentPlayer(element) {
-    return element.name == currentPlayer;
+function findIndexOfCurrentPlayer() {
+    return players.name == currentPlayer;
 }
 
 function gameOver() {
