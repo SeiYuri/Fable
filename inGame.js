@@ -2,7 +2,7 @@
 
     /* In game screen should be visible until the time limit is up */ 
     var numRounds = 3; // each user will get this many turns
-    var activeRound = 1; // number of active round
+    var activeRound = 0; // number of active round
     var turnTimeLimit = 30; // seconds
     var voteTimeLimit = 10; // seconds
     var currentPlayer = "";
@@ -36,14 +36,14 @@ function timerChange(){
 
 function moveToApproval (){
     approveSentence();
-    pickNextPlayer();
+    
 }
 
     function appendStory(divID){
         $("#" + divID).empty();
         for(k = 0 ; k < story.length ; k++){
             var newSentence = $("<span>").text(story[k].sentence);
-            if (story[k].newParagraph === "on"){
+            if (story[k].startParagraph){
                 $("#" + divID).append("<br><br>");
             }
             $(newSentence).addClass("player-" + story[k].playerID + "-sentences");
@@ -73,7 +73,7 @@ function moveToApproval (){
             
         }
         votesLeft = players.length;
-        $("#reviewModal").modal('show');
+        $("#reviewModal").modal();
         
     };
 
@@ -96,21 +96,24 @@ function moveToApproval (){
 
         if(votesLeft === 0){
             if(downVote < Math.floor(players.length * 0.75)){
-            if ($("#new-paragraph-check").val() === "true"){
-                var newParagraph = true
+                if ($("#new-paragraph-check").is(':checked')){
+                    var newParagraph = true
+                }
+                else {
+                    var newParagraph = false
+                }
+                var newStory = {
+                    sentence: $("#new-sentence-input").val().trim(),
+                    playerID: players[currentPlayer].playerID,
+                    startParagraph: newParagraph
+                };
+                story.push(newStory);
             }
-            else {
-                var newParagraph = false
-            }
-            var newStory = {
-                sentence: $("#new-sentence-input").val().trim(),
-                playerID: players[currentPlayer].playerID,
-                startParagraph: newParagraph
-            };
-            story.push(newStory);
-            }
+
             $("#reviewModal").modal('hide');
             timer = setInterval(timerChange,1000);
+            pickNextPlayer();
+            $("#new-sentence-input").val("");
         };
 
         $("#" + buttonDivLoc).remove();
@@ -118,6 +121,7 @@ function moveToApproval (){
         if (story.length > 0){
             appendStory("current-story");
         }
+        
     });
 
 
@@ -130,11 +134,8 @@ function moveToApproval (){
 
 
 /* Turn logic: Picks a player at random, but ensures that no player is "ahead" of any other player by more than 1 turn */ 
-var playersRemainingThisRound = players.concat(); // creates a copy of players array
-console.log(playersRemainingThisRound);
-
 function pickNextPlayer() {
-    console.log("Pick Next player is run")
+
     if (playersRemainingThisRound.length === 0) { // all players have gone this round
         // all players are eligible to be next
         playersRemainingThisRound = players.concat(); // reset array back to all players
@@ -148,7 +149,9 @@ function pickNextPlayer() {
     // determine next player, store in 'currentPlayer', and remove current player from eligible players in current round
     var nextPlayer = playersRemainingThisRound[Math.floor(Math.random()*playersRemainingThisRound.length)].playerID; //need to read .name property
     currentPlayer = nextPlayer;
+    updateSidebar();
     playersRemainingThisRound.splice(playersRemainingThisRound.findIndex(findIndexOfCurrentPlayer),1); // remove current player from remaining players array
+    console.log(players[parseInt(currentPlayer)].name);
 }
 
 function findIndexOfCurrentPlayer(element) {
@@ -172,5 +175,17 @@ function gameOver() {
     });
 
 
+}
+
+function updateSidebar() {
+    $("#sidebar-list").empty();
+    players.forEach(function(player) {
+        var newListItem = $("<li>").text(player.name);
+        if (player.playerID == currentPlayer) {
+            $(newListItem).addClass("current-player-sidebar");
+        }
+        $("#sidebar-list").append(newListItem);
+    });
+    
 }
 
