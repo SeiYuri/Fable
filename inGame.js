@@ -1,4 +1,5 @@
 /* Timers */ 
+
     /* In game screen should be visible until the time limit is up */ 
     var numRounds = 3; // each user will get this many turns
     var activeRound = 1; // number of active round
@@ -20,7 +21,7 @@
     var upVote = 0;
     var downVote = 0;
 
-    function timerChange(){
+function timerChange(){
         time--
         console.log(time);
         $("#time-left").text(time);
@@ -32,6 +33,11 @@
             
         };
     }
+
+function moveToApproval (){
+    approveSentence();
+    pickNextPlayer();
+}
 
     function appendStory(divID){
         $("#" + divID).empty();
@@ -45,10 +51,6 @@
         }
     }
 
-    function moveToApproval (){
-        approveSentence();
-        pickNextPlayer();
-    }
 
     function approveSentence() {
         var reviewDiv = $(".review-prev-sentence")
@@ -118,9 +120,6 @@
         }
     });
 
-    function findIndexOfCurrentPlayer(element) {
-        return element.name == currentPlayer;
-    };
 
 
     $(document).on("click", "#new-sentence-submit-button", function(){
@@ -130,28 +129,31 @@
     })
 
 
+/* Turn logic: Picks a player at random, but ensures that no player is "ahead" of any other player by more than 1 turn */ 
+var playersRemainingThisRound = players.concat(); // creates a copy of players array
+console.log(playersRemainingThisRound);
+
 function pickNextPlayer() {
     console.log("Pick Next player is run")
     if (playersRemainingThisRound.length === 0) { // all players have gone this round
         // all players are eligible to be next
-        playersRemainingThisRound = players;
+        playersRemainingThisRound = players.concat(); // reset array back to all players
         activeRound++;
     }
 
     if (activeRound > numRounds) {
         gameOver();
     }
-
     
     // determine next player, store in 'currentPlayer', and remove current player from eligible players in current round
-    var nextPlayer = playersRemainingThisRound[Math.floor(Math.random()*playersRemainingThisRound.length)].name; //need to read .name property
+    var nextPlayer = playersRemainingThisRound[Math.floor(Math.random()*playersRemainingThisRound.length)].playerID; //need to read .name property
     currentPlayer = nextPlayer;
     playersRemainingThisRound.splice(playersRemainingThisRound.findIndex(findIndexOfCurrentPlayer),1); // remove current player from remaining players array
 }
 
+function findIndexOfCurrentPlayer(element) {
+    return element.playerID == currentPlayer;
 
-function findIndexOfCurrentPlayer() {
-    return players.name == currentPlayer;
 }
 
 function gameOver() {
@@ -169,4 +171,6 @@ function gameOver() {
         $("#full-story-display").append(newSentence);
     });
 
+
 }
+
