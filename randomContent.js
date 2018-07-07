@@ -1,6 +1,4 @@
-updateRandomContent(); // this should go where 
-function updateRandomContent() {
-    
+function updateRandomContent() {    
     var randomBoolean = Math.floor(Math.random()*2);
     if (randomBoolean === 0) { /* update & display random image */
         var randomImgQueryURL = "https://api.unsplash.com/photos/random?client_id=de1f3cde2de36e59880cc078d226a340adb625b535b3b059f97555a8e18fd26f";
