@@ -16,7 +16,7 @@ function updateRandomContent() {
             $("#random-content").html(randomImg);
         });
     } else if (randomBoolean === 1) { /* update & display random word */
-        var randomWordQueryURL = "https://random-word-api.herokuapp.com/word?key=JHYBH4V4&number=1";
+        var randomWordQueryURL = "https://random-word-api.herokuapp.com/word?key=U3UG725K&number=1";
         var randomWord = "";
         $.ajax({
             url: randomWordQueryURL,
