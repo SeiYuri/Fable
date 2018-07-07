@@ -6,6 +6,7 @@
     var voteTimeLimit = 10; // seconds
     var currentPlayer = "";
     var time = 30;
+    var playersRemainingThisRound = [];
     // holds all story sentences
 
     var story = []; //attributes are playerID and sentence
@@ -32,10 +33,12 @@
         };
     }
 
-    function appendStory(){
-        $("#current-story").empty();
+    function appendStory(divID){
+        $("#" + divID).empty();
         for(k = 0 ; k < story.length ; k++){
-            $("#current-story").append("<p>" + story[k] + "</p>")
+            var newSentence = $("<span>").text(story[k].sentence);
+            $(newSentence).addClass("player-" + this.playerID + "-sentences");
+            $("#" + divID).append(newSentence);
         }
     }
 
@@ -72,15 +75,20 @@
 
     $(document).on("click", ".approvalBtn", function(){
         var vote = $(this).attr("data-vote");
+
         var buttonDivLoc = $(this).attr("data-player");
+
         if (vote === "up"){
             upVote++;
         }
         else {
             downVote++;
         }
+
         votesLeft--;
+
         console.log(votesLeft);
+
         if(votesLeft === 0){
             if(downVote < Math.floor(players.length * 0.75)){
             var newStory = {
@@ -90,39 +98,30 @@
             story.push(newStory);
             }
             $("#reviewModal").modal('hide');
+            timer = setInterval(timerChange,1000);
         };
+
         $("#" + buttonDivLoc).remove();
+
+        if (story.length > 0){
+            appendStory("current-story");
+        }
     });
 
     function findIndexOfCurrentPlayer(element) {
         return element.name == currentPlayer;
     };
 
-    /* Turn logic: Picks a player at random, but ensures that no player is "ahead" of any other player by more than 1 turn */ 
-    var playersRemainingThisRound = [ // hard coding this just for testing purposes. in production this should be initialized to 'players' array.
-        {
-            name: "player1"
-        },
-        {
-            name: "player2"
-        },
-        {
-            name: "player3"
-        },
-        {
-            name: "player4"
-        }
-    ]; 
 
-   
     $(document).on("click", "#new-sentence-submit-button", function(){
-        Event.preventDefault();
+        event.preventDefault();
         clearInterval(timer);
         moveToApproval();
     })
 
 
 function pickNextPlayer() {
+    console.log("Pick Next player is run")
     if (playersRemainingThisRound.length === 0) { // all players have gone this round
         // all players are eligible to be next
         playersRemainingThisRound = players;

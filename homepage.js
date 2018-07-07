@@ -15,7 +15,7 @@ var playersIn = 0;
             $(".title-screen").css("display", "none"); // hide the title screen and show the main gameplay div
             $(".game-screen").css("display", "block"); // show gameplay screen
             // TO-DO: add function call to start game (timers, etc)
-            playersRemainingThisRound = players;
+            // pickNextPlayer();
             timer = setInterval(timerChange,1000);
         }
     });
