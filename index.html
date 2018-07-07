@@ -8,7 +8,7 @@
     <title>Fable</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Spirax" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
@@ -29,10 +29,8 @@
     <div class="container title-screen">
         <div class="row">
             <div class="col-md-12">
-                <div class="fadeAnimation">
-                    <img id="header-image" src="assets/images/logo.png" />
-                    <img id="start-story-img" class="animated fadeInLeft" src="assets/images/startyourstory.png" />
-                </div>
+                <img id="header-image" class="animated fadeInDown" src="assets/images/logo.png" />
+                <img id="start-story-img" class="animated fadeInLeft" src="assets/images/startyourstory.png" />
 
                 <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -44,16 +42,28 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <strong>The goal of the game is to write a fun fictional story</strong>
-                                <ol>
-                                    <li>Gather 'round the campfire (this computer) with 3 friends</li>
-                                    <li>Enter your names on the Start Screen</li>
-                                    <li>Players will be selected at random and have 30 seconds to add onto the Fable</li>
-                                    <li>Once the 30 seconds are up or user submits their contribution, other players will have
-                                        a chance to Veto their contribution if they think it will take the story down too
-                                        dark a path! (the vote must be unanimous)</li>
-                                    <li>The game lasts 3 minutes</li>
-                                </ol>
+                                <center>
+                                    <strong>Gather 'round the campfire and let's tell a story!</strong>
+                                </center>
+                                <ul>
+                                    <li>Enter each of the
+                                        <strong>4</strong> players' names below and press
+                                        <strong>Start</strong> when ready.</li>
+                                    <br>
+                                    <li>A player will be selected at random and have 30 seconds to write a piece of the story.</li>
+                                    <br>
+                                    <li>Once the 30 seconds are up, the other players will have a chance to veto the contribution
+                                        if they think it will take the story down too dark a path (the vote must be unanimous)!</li>
+                                    <br>
+                                    <li>After voting, the next player will have a chance to contribute to the story. This continues
+                                        until time is up!</li>
+                                    <br>
+                                    <li>Once the final timer ends, players will be able to see their full story and then play
+                                        again!
+                                    </li>
+                                    <br>
+                                    <li>The game lasts 3 minutes.</li>
+                                </ul>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -62,17 +72,16 @@
                     </div>
                 </div>
                 <form>
-                    <input type="text" placeholder="Player Name" class="player-name-input fadeAnimation">
-                    <button type="submit" id="player-name-button" class="fadeAnimation">Add Player</button>
+                    <input type="text" placeholder="Player Name" class="player-name-input">
+                    <button type="submit" id="player-name-button" class="">Add Player</button>
                 </form>
-                <div class="player-names fadeAnimation">
-                    <ul class="player-list fadeAnimation"></ul>
+                <div class="player-names">
+                    <ul class="player-list"></ul>
                 </div>
                 <div id="nameAlert" class="animated flip"></div>
                 <div class="buttons-holder">
-                    <button type="button" id="start-button" data-micron="swing" class="btn btn-secondary btn-lg fadeAnimation">Start</button>
-                    <button type="button" id="instructions-button" data-micron="swing" class="btn btn-secondary btn-lg fadeAnimation" data-toggle="modal"
-                        data-target="#instructionsModal">Instructions</button>
+                    <button type="button" id="start-button" data-micron="swing" class="btn btn-secondary btn-lg">Start</button>
+                    <button type="button" id="instructions-button" data-micron="swing" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#instructionsModal">Instructions</button>
                 </div>
             </div>
         </div>
@@ -83,37 +92,46 @@
 
     <div class="container game-screen">
         <div id="random-content">random content</div>
-        <p>Time Left:<span id="time-left"></span></p>
+        <p>Time Left:
+            <span id="time-left"></span>
+        </p>
 
         <div id="current-story"></div>
 
 
         <!-- Modal used for Approval Process -->
         <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="reviewModalLabel">Peer Review</h5>
+                        <h5 class="modal-title" id="reviewModalLabel">Peer Review</h5>
                     </div>
                     <div class="modal-body">
-                      <div class="review-prev-sentence"></div>
-                      <br>
-                      <div class="review-new-sentence"></div>
+                        <div class="review-prev-sentence"></div>
+                        <br>
+                        <div class="review-new-sentence"></div>
                     </div>
                     <div class="modal-footer">
                     </div>
-                  </div>
                 </div>
-              </div>
+            </div>
+        </div>
 
         <form>
-                <input type="text" placeholder="Player Name" id="new-sentence-input">
-                <button type="submit" id="new-sentence-submit-button">Add Sentence</button>
-            </form>
+            <input type="text" placeholder="Player Name" id="new-sentence-input">
+            <button type="submit" id="new-sentence-submit-button">Add Sentence</button>
+        </form>
     </div>
-    
-    <script src="inGame.js"></script>
-    <script src="homepage.js"></script>
+
+
+    <div class="container results-screen">
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+        </div>
+
+        <script src="inGame.js"></script>
+        <script src="homepage.js"></script>
 
 </body>
 
@@ -132,10 +150,9 @@
 <!-- Upvote/Downvote buttons for each player: CLASS: 
                                 .upvote-btn(1-4)  | .downvote-btn(1-4) -->
 
-                        <!-- Each sentence has a class for the player so we can highlight it a color: .player-[playerID]-sentences -->
-                        
-                    <!-- Results Page -->
-                        <!-- container name: .results-screen -->
-                        <!-- 2-column Table with player name and score: #results-table  -->
-                        <!-- Display full story: ID #full-story-display -->
-                        
+<!-- Each sentence has a class for the player so we can highlight it a color: .player-[playerID]-sentences -->
+
+<!-- Results Page -->
+<!-- container name: .results-screen -->
+<!-- 2-column Table with player name and score: #results-table  -->
+<!-- Display full story: ID #full-story-display -->

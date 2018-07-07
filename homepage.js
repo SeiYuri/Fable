@@ -7,8 +7,6 @@ var playersIn = 0;
 
 $(document).ready(function(){
 
-    $(".fadeAnimation").addClass('animated fadeInDown');
-
     $(".player-list").append("<h6> Players: " + playersIn + " / 4</h6>"); // TO-DO: since this is just an initialization it should be moved to the html
 
     $("#start-button").on("click", function(){

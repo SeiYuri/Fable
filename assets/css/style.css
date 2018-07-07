@@ -44,6 +44,15 @@ body {
     animation: swing;
 }
 
+.modal-title {
+   font-family: 'EB Garamond', serif;
+   font-size: 30px;
+}
+
+.modal-body {
+    font-family: 'EB Garamond', serif;
+}
+
 #instructionsModal {
     color: black;
 }
