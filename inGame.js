@@ -130,8 +130,6 @@ function moveToApproval (){
 
 
 /* Turn logic: Picks a player at random, but ensures that no player is "ahead" of any other player by more than 1 turn */ 
-var playersRemainingThisRound = players.concat(); // creates a copy of players array
-console.log(playersRemainingThisRound);
 
 function pickNextPlayer() {
     console.log("Pick Next player is run")
@@ -148,6 +146,7 @@ function pickNextPlayer() {
     // determine next player, store in 'currentPlayer', and remove current player from eligible players in current round
     var nextPlayer = playersRemainingThisRound[Math.floor(Math.random()*playersRemainingThisRound.length)].playerID; //need to read .name property
     currentPlayer = nextPlayer;
+    updateSidebar();
     playersRemainingThisRound.splice(playersRemainingThisRound.findIndex(findIndexOfCurrentPlayer),1); // remove current player from remaining players array
 }
 
@@ -172,5 +171,17 @@ function gameOver() {
     });
 
 
+}
+
+function updateSidebar() {
+    $("#sidebar-list").empty();
+    players.forEach(function(player) {
+        var newListItem = $("<li>").text(player.name);
+        if (player.playerID == currentPlayer) {
+            $(newListItem).addClass("current-player-sidebar");
+        }
+        $("#sidebar-list").append(newListItem);
+    });
+    
 }
 
