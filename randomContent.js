@@ -11,8 +11,7 @@ function updateRandomContent() {
             var randomImg = $("<img>").attr({
                 "src": randomImgUrl,
                 "class": "random-img",
-                "alt": "random image",
-                "width": "300px"
+                "alt": "random image"
             });
             $("#random-content").html(randomImg);
         });
