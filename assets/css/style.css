@@ -153,3 +153,11 @@ body {
     height: 280px;
     overflow: scroll;
 }
+
+#reviewModal {
+    color: black;
+}
+
+.review-prev-sentence-display {
+    display:none;
+}
