@@ -52,25 +52,18 @@ function moveToApproval (){
 
 
     function approveSentence() {
-        var reviewDivSentence = $(".review-prev-sentence");
-        var reviewDiv = $(".review-prev-sentence-display");
         var newSentenceDiv = $(".review-new-sentence")
         var newSentenceInput = $("#new-sentence-input").val().trim();
 
         if (newSentenceInput.length === 0) {
             pickNextPlayer();
+            timer = setInterval(timerChange,1000);
         }
 
         else{
-            if(story.length === 0){
-                newSentenceDiv.html("<p>"+ newSentenceInput + "</p>");
-                reviewDiv.css("display", "none")
-            }
-            else{
-                reviewDiv.css("display", "block")
-                reviewDivSentence.html("<p>" + story[story.length - 1].sentence + "</p>")
-                newSentenceDiv.html("<p>"+ newSentenceInput + "</p>");
-            }
+            newSentenceDiv.html("<p>"+ newSentenceInput + "</p>");
+            $(".player-on-review").text(players[currentPlayer].name);
+
             for (var l = 0; l < players.length; l++){
                 var buttonsDiv = $("<div id=player" + players[l].playerID + ">").html("<h6>" + players[l].name + "</h6>");
                 var upVote = $("<button class='approvalBtn' data-vote='up' data-player=player" + players[l].playerID+ "><i class='fas fa-thumbs-up'></i></button>")
@@ -79,7 +72,7 @@ function moveToApproval (){
                 $(".approval-btns").append(buttonsDiv);
                 
             }
-            $(".player-on-review").text(players[currentPlayer].name);
+            
             votesLeft = players.length;
             $("#reviewModal").modal();
         }
