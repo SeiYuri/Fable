@@ -52,6 +52,9 @@ body {
 .modal-body {
     font-family: 'EB Garamond', serif;
 }
+.modal-footer {
+    justify-content: center;
+}
 
 #instructionsModal {
     color: black;
