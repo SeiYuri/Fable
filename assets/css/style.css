@@ -72,40 +72,39 @@ body {
     margin-left: 320px;
 }
 
-.sidenav {
-    margin-top: 30px;
-    height: 75%;
-    width: 130px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 87%;
-    background-color: white; 
-    overflow-x: hidden;
-    padding-top: 20px;
-    border: 2px solid gold;
+/*-----------------STORY PAGE------------------*/
+
+header {
+    background-color: white;
+    opacity: 0.7;
 }
+
+#header-image-sm {
+    height: 110px;
+    width: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
+
 
 #new-sentence-input {
     background-color: white;
     color: black;
-    overflow: scroll; 
     padding: 25px;
-    width: 70%;
-    height: 110px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    width: 130%;
+    height: 150px;
+    margin-left: -50px;
+    margin-top: 10px;
     border: 2px solid gold;
     border-radius: 10px;
 }
 
 #new-sentence-submit-button {
     text-align: center;
-    margin-top: 120px;
-    margin-left: 374px;
-    width: 20%;
-    height: 40px;
+    margin-left: 120px;
+    margin-top: 10px;
     color: white; 
     font-family: 'Spirax', cursive;
     background-color: rgb(65, 62, 62);
@@ -119,39 +118,74 @@ body {
     border-radius: 5px;
     background-color: white;
     color: black;
-    margin-top: -131px;
-    margin-left: 690px;
-    width: 7%;
+    width: 17%;
+    margin-left: 360px;
+    margin-top: 5px;
     text-align: center;
     font-size: 14px;
 }
 
+#random-content {
+    margin-top: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.random-img /*or simply img, see which one works*/ { 
+    height: 150px;
+    width: 150px;
+}
 .random-content-text {
     font-family: 'Spirax', cursive;
     font-size: 30px;
-    margin-top: 50px;
+    margin-top: 20px;
     text-align: center;
 }
 
-#random-content {
-    font-family: 'EB Garamond', serif;
-    font-size: 25px;
-    text-align: center;
-    margin-top: 50px;
-}
-
-#full-story-displayed {
-    margin: auto;
-    margin-top: 30px;
+#current-story {
+    margin-top: 20px;
     color: black;
     background-color: white;
-    width: 50%;
+    margin-left: 70px;
+    width: 103%;
     border: 2px solid gold;
     border-radius: 5px;
     padding: 10px;
-    text-align: center;
-    height: 280px;
+    height: 400px;
     overflow: scroll;
+}
+
+.fa-user {
+    margin-left: 115px;
+}
+
+.current-player-turn {
+    display: inline;
+    font-family: 'Spirax', cursive;
+    font-size: 18px;
+}
+
+.current-story-title {
+    font-family: 'Spirax', cursive;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-left: 140px;
+    text-align: center;
+}
+
+.time-left-text {
+    float: right;
+    margin-top: 50px;
+}
+
+#time-left {
+    float: right;
+    margin-top: 50px;
+    margin-right: -110px;
 }
 
 #reviewModal {
@@ -160,4 +194,46 @@ body {
 
 .review-prev-sentence-display {
     display:none;
+}
+
+/*-----------------RESULTS PAGE--------------------*/
+
+#fullStory {
+    margin-top: 5px;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    font-family: 'Spirax', cursive;
+    text-shadow: 2px 3px 4px black;
+}
+
+#full-story-display {
+    background-color: white;
+    color: black;
+    margin-top: 10px;
+    border: 2px solid gold;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 430px;
+    overflow: scroll;
+    
+}
+
+#start-story-img {
+    animation-delay: 2s;
+}
+
+
+#play-again-btn {
+    text-align: center;
+    height: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: white; 
+    font-family: 'Spirax', cursive;
+    background-color: rgb(65, 62, 62);
+    font-size: 15px;
 }
