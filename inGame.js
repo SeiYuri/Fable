@@ -179,3 +179,22 @@ function gameOver() {
 
 
 }
+
+$(document).on("click", "#play-again-btn", function(){
+    event.preventDefault();
+    $(".results-screen").css("display", "none");
+    playersIn = 0;
+    players = [];
+    story = [];
+    activeRound = 0;
+    currentPlayer = "";
+    time = 30;
+    playersRemainingThisRound = [];
+    votesLeft = 0;
+    upVote = 0;
+    downVote = 0;
+    $(".player-name-input").val("");
+    $("#nameAlert").text("");
+    $(".player-list").html("<h6> Players: 0/ 4</h6>");
+    $(".title-screen").css("display", "block");
+});
