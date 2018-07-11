@@ -90,9 +90,9 @@
 
 
     <div class="container game-screen">
-            <header>
-                    <img id="header-image-sm" src="assets/images/smaller-logo.png" />
-                </header>
+        <header>
+            <img id="header-image-sm" src="assets/images/smaller-logo.png" />
+        </header>
         <div class="row">
             <div class="col-md-5">
                 <div class="random-content-text animated infinite pulse">Your word/image is:</div>
@@ -101,12 +101,10 @@
                 <div class="fas fa-user"></div>
                 <div class="current-player-turn"></div>'s Turn
 
-                <div class="time-left-text">Time Left:</div>
-                <span id="time-left"></span>
-
                 <form>
                     <input type="text" id="new-sentence-input">
                     <input type="checkbox" id="new-paragraph-check">
+                    <div class="time-left-text">Time Left: <span id="time-left"></span></div>
                     <label for="new-paragraph-check">New Paragraph?</label>
                     <button type="submit" id="new-sentence-submit-button">Add Sentence</button>
                 </form>
@@ -114,10 +112,6 @@
             <div class="col-md-7">
                 <div class="current-story-title animated infinite pulse">Current Story</div>
                 <div id="current-story">
-                    Praesent ante ipsum, vehicula quis magna quis, congue volutpat nibh. Quisque a ante neque. Fusce turpis libero, vehicula
-                    in ante quis, congue pellentesque arcu. Integer sit amet dignissim odio. Nam eu lacus in dui posuere
-                    imperdiet. Maecenas interdum lectus dui, non imperdiet tellus dapibus in. In in leo et odio venenatis
-                    posuere. Integer feugiat sollicitudin fringilla. Sed semper pellentesque diam at fbfdfbdbfdbdb">fbbdfbfbdfbfdbfdbfbdbd
                 </div>
             </div>
         </div>
@@ -147,28 +141,28 @@
 
 
     <div class="container results-screen">
-            <div class="row">
-                <div class="col-md-12">
-                        <header>
-                                <img id="header-image-sm" src="assets/images/smaller-logo.png" />
-                           </header> 
-                    <div id="fullStory" class="animated infinite tada">Your Full Story</div>
-                    <div id="full-story-display">
-                        <!-- APPEND EACH PLAYER'S STORY CONTRIBUTION HERE. THEY SHOULD EACH BE <p> ELEMENTS. -->
-                    </div>
-    
-                    <center>
-                        <button type="button" id="play-again-btn">Craft Another Fable</button>
-                    </center>
-    
+        <div class="row">
+            <div class="col-md-12">
+                <header>
+                    <img id="header-image-sm" src="assets/images/smaller-logo.png" />
+                </header>
+                <div id="fullStory" class="animated infinite tada">Your Full Story</div>
+                <div id="full-story-display">
+                    <!-- APPEND EACH PLAYER'S STORY CONTRIBUTION HERE. THEY SHOULD EACH BE <p> ELEMENTS. -->
                 </div>
+
+                <center>
+                    <button type="button" id="play-again-btn">Craft Another Fable</button>
+                </center>
+
             </div>
         </div>
+    </div>
 
-        <script src="randomContent.js"></script>
-        <script src="homepage.js"></script>
-        <script src="randomContent.js"></script>
-        <script src="inGame.js"></script>
+    <script src="randomContent.js"></script>
+    <script src="homepage.js"></script>
+    <script src="randomContent.js"></script>
+    <script src="inGame.js"></script>
 
 </body>
 

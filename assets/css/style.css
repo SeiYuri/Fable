@@ -29,7 +29,7 @@ body {
     color: white;
 }
 
-#start-button, #instructions-button {
+#start-button, #instructions-button, #player-name-button {
     width: 20%;
     color: white; 
     font-family: 'Spirax', cursive;
@@ -69,7 +69,13 @@ body {
 }
 
 .player-name-input {
-    margin-left: 320px;
+    margin-left: 30%;
+}
+
+li {
+    list-style-type: none;
+    margin-left: -20%;
+    
 }
 
 /*-----------------STORY PAGE------------------*/
@@ -111,20 +117,6 @@ header {
     font-size: 15px;
 }
 
-#story-write-timer {
-    border-top: 3px solid gold;
-    border-left: 3px solid gold;
-    border-right: 3px solid gold;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
-    width: 17%;
-    margin-left: 360px;
-    margin-top: 5px;
-    text-align: center;
-    font-size: 14px;
-}
-
 #random-content {
     margin-top: 3px;
     margin-left: auto;
@@ -135,9 +127,14 @@ header {
     text-align: center;
 }
 
-.random-img /*or simply img, see which one works*/ { 
-    height: 150px;
-    width: 150px;
+.random-word {
+    font-family: 'Spirax', cursive;
+    font-size: 25px;
+}
+
+.random-img { 
+    height: 250px;
+    width: 250px;
 }
 .random-content-text {
     font-family: 'Spirax', cursive;
@@ -150,8 +147,8 @@ header {
     margin-top: 20px;
     color: black;
     background-color: white;
-    margin-left: 70px;
-    width: 103%;
+    margin-left: 80px;
+    width: 95%;
     border: 2px solid gold;
     border-radius: 5px;
     padding: 10px;
@@ -179,13 +176,11 @@ header {
 
 .time-left-text {
     float: right;
-    margin-top: 50px;
 }
 
 #time-left {
     float: right;
-    margin-top: 50px;
-    margin-right: -110px;
+    margin-left: 5px;
 }
 
 #reviewModal {
@@ -225,7 +220,6 @@ header {
 #start-story-img {
     animation-delay: 2s;
 }
-
 
 #play-again-btn {
     text-align: center;
