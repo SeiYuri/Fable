@@ -4,9 +4,8 @@
 
 var players = [];
 var playersIn = 0;
+var usedNames = [];
 
-
-    $(".player-list").append("<h6> Players: " + playersIn + " / 4</h6>"); // TO-DO: since this is just an initialization it should be moved to the html
 
     $("#start-button").on("click", function(){
         if(playersIn === 4){ // If all players are in
@@ -26,8 +25,9 @@ var playersIn = 0;
 
         $(".player-list").empty();
 
-        if(nameInput){
-
+        if (nameInput && ( usedNames.indexOf(nameInput) === -1 ) ){
+            $("#nameAlert").text("")
+            usedNames.push(nameInput)
             if (playersIn === 0){
                 var player1 = {
                     playerID: 0,
@@ -70,7 +70,11 @@ var playersIn = 0;
             }
         }
 
-        $(".player-list").append("<h6> Players: " + playersIn + "/ 4</h6>")
+        else {
+            $("#nameAlert").text("Name Already in Use!")
+        }
+
+        $(".player-number").text(playersIn)
             // it seems the h6 is overriding the bullet point, but i think it would be better practice to put this outside the list -Mark
         for(var i= 0; i < players.length; i++) {
             $(".player-list").append("<li><i class='fas fa-user'></i>   " + players[i].name + "</li>");
