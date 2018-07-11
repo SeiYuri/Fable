@@ -1,7 +1,7 @@
 /* Timers */ 
 
     /* In game screen should be visible until the time limit is up */ 
-    var numRounds = 3; // each user will get this many turns
+    var numRounds = 1; // each user will get this many turns
     var activeRound = 0; // number of active round
     var turnTimeLimit = 30; // seconds
     var voteTimeLimit = 10; // seconds
@@ -179,3 +179,22 @@ function gameOver() {
 
 
 }
+
+$(document).on("click", "#play-again-btn", function(){
+    event.preventDefault();
+    $(".results-screen").css("display", "none");
+    playersIn = 0;
+    players = [];
+    story = [];
+    activeRound = 0;
+    currentPlayer = "";
+    time = 30;
+    playersRemainingThisRound = [];
+    votesLeft = 0;
+    upVote = 0;
+    downVote = 0;
+    $(".player-name-input").val("");
+    $("#nameAlert").text("");
+    $(".player-list").html("<h6> Players: 0/ 4</h6>");
+    $(".title-screen").css("display", "block");
+});
