@@ -151,7 +151,7 @@ function pickNextPlayer() {
     // determine next player, store in 'currentPlayer', and remove current player from eligible players in current round
     var nextPlayer = playersRemainingThisRound[Math.floor(Math.random()*playersRemainingThisRound.length)].playerID; //need to read .name property
     currentPlayer = nextPlayer;
-    $("#current-player").text(players[currentPlayer].name);
+    $(".current-player-turn").text(players[currentPlayer].name);
     playersRemainingThisRound.splice(playersRemainingThisRound.findIndex(findIndexOfCurrentPlayer),1); // remove current player from remaining players array
     console.log(players[parseInt(currentPlayer)].name);
     updateRandomContent();
@@ -168,14 +168,26 @@ function gameOver() {
     // TO-DO: do we need to cancel any timers here?
     
     // Populate story div
-    story.forEach(function(element) {
-        var newSentence = $("<span>").text(element.sentence);
-        $(newSentence).addClass(function() {
-            var className = "player-" + this.playerID + "-sentences";
-            return className;
-        });
-        $("#full-story-display").append(newSentence);
-    });
+    appendStory("full-story-display");
 
 
 }
+
+$(document).on("click", "#play-again-btn", function(){
+    event.preventDefault();
+    $(".results-screen").css("display", "none");
+    playersIn = 0;
+    players = [];
+    story = [];
+    activeRound = 0;
+    currentPlayer = "";
+    time = 30;
+    playersRemainingThisRound = [];
+    votesLeft = 0;
+    upVote = 0;
+    downVote = 0;
+    $(".player-name-input").val("");
+    $("#nameAlert").text("");
+    $(".player-list").html("<h6> Players: 0/ 4</h6>");
+    $(".title-screen").css("display", "block");
+});
