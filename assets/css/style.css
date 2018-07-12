@@ -101,7 +101,11 @@ body {
 li {
     list-style-type: none;
     margin-left: -20%;
-    
+}
+
+ul {
+    margin-left: 8%;
+    text-align: center;
 }
 
 /*-----------------STORY PAGE------------------*/
