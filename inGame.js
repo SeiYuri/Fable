@@ -186,8 +186,13 @@ $(document).on("click", "#play-again-btn", function(){
     votesLeft = 0;
     upVote = 0;
     downVote = 0;
+    usedNames = [];
     $(".player-name-input").val("");
     $("#nameAlert").text("");
-    $(".player-list").html("<h6> Players: 0/ 4</h6>");
+    $(".player-list").html("");
+    $(".num-players-in").html("Players : <span class='player-number'>0</span> / 4")
     $(".title-screen").css("display", "block");
+    $("#current-story").html("");
+    $("#full-story-display").html("");
+    $(".approval-btns").html("");
 });

@@ -22,6 +22,7 @@ var usedNames = [];
 
         //add the player name to the corresponding player object
         var nameInput = $(".player-name-input").val().trim();
+        $(".player-name-input").val(""); // clear input box for new player after submit
 
         $(".player-list").empty();
 
