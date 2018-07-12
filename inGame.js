@@ -22,15 +22,20 @@
     var downVote = 0;
 
 function timerChange(){
+    if (activeRound > numRounds){
+        clearInterval(timer)
+    }
+
     $("#time-left").text(time);
     time--
-        
-        if (time === 0 ){
+    
+    if (time === 0){
             clearInterval(timer);
             moveToApproval();
             time = turnTimeLimit;
             
         };
+        
     }
 
 function moveToApproval (){
@@ -93,8 +98,6 @@ function moveToApproval (){
 
         votesLeft--;
 
-        console.log(votesLeft);
-
         if(votesLeft === 0){
             if(downVote < Math.floor(players.length * 0.75)){
                 if ($("#new-paragraph-check").is(':checked')){
@@ -113,6 +116,7 @@ function moveToApproval (){
 
             $("#reviewModal").modal('hide');
             timer = setInterval(timerChange,1000);
+
             pickNextPlayer();
             $("#new-sentence-input").val("");
         };
@@ -166,7 +170,7 @@ function gameOver() {
     $(".game-screen").css("display", "none");
     $(".results-screen").css("display", "block");
     // TO-DO: do we need to cancel any timers here?
-    
+
     // Populate story div
     appendStory("full-story-display");
 
@@ -186,8 +190,13 @@ $(document).on("click", "#play-again-btn", function(){
     votesLeft = 0;
     upVote = 0;
     downVote = 0;
+    usedNames = [];
     $(".player-name-input").val("");
     $("#nameAlert").text("");
-    $(".player-list").html("<h6> Players: 0/ 4</h6>");
+    $(".player-list").html("");
+    $(".num-players-in").html("Players : <span class='player-number'>0</span> / 4")
     $(".title-screen").css("display", "block");
+    $("#current-story").html("");
+    $("#full-story-display").html("");
+    $(".approval-btns").html("");
 });
