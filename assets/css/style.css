@@ -29,6 +29,11 @@ body {
     color: white;
 }
 
+.player-names {
+    margin-top: 20px;
+    margin-left: 45%;
+}
+
 #start-button, #instructions-button, #player-name-button {
     width: 20%;
     color: white; 
