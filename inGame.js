@@ -119,6 +119,7 @@ function moveToApproval (){
 
             pickNextPlayer();
             $("#new-sentence-input").val("");
+            downVote = 0;
         };
 
         $("#" + buttonDivLoc).remove();
