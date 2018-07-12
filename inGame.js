@@ -1,7 +1,7 @@
 /* Timers */ 
 
     /* In game screen should be visible until the time limit is up */ 
-    var numRounds = 3; // each user will get this many turns
+    var numRounds = 1; // each user will get this many turns
     var activeRound = 0; // number of active round
     var turnTimeLimit = 30; // seconds
     var voteTimeLimit = 10; // seconds
