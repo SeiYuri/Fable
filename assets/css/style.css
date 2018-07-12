@@ -34,14 +34,33 @@ body {
     margin-left: 45%;
 }
 
-#start-button, #instructions-button, #player-name-button {
-    width: 20%;
+#start-button {
+    padding-left: 45px;
+    padding-right: 45px;
     color: white; 
     font-family: 'Spirax', cursive;
     background-color: rgb(65, 62, 62);
     font-size: 20px;
-    margin-left: 10px;
+    margin-left: 5%;
 }
+
+
+#instructions-button {
+    color: white; 
+    font-family: 'Spirax', cursive;
+    background-color: rgb(65, 62, 62);
+    font-size: 20px;
+    margin-left: 5%;
+}
+
+#player-name-button {
+    color: white; 
+    font-family: 'Spirax', cursive;
+    background-color: rgb(65, 62, 62);
+    font-size: 20px;
+}
+
+
 
 #start-button:hover, #instructions-button:hover {
     color: white;
