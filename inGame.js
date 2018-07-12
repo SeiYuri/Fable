@@ -175,13 +175,14 @@ function gameOver() {
 
 $(document).on("click", "#play-again-btn", function(){
     event.preventDefault();
+    clearInterval(timer);
     $(".results-screen").css("display", "none");
     playersIn = 0;
     players = [];
     story = [];
     activeRound = 0;
     currentPlayer = "";
-    time = 30;
+    time = turnTimeLimit;
     playersRemainingThisRound = [];
     votesLeft = 0;
     upVote = 0;
